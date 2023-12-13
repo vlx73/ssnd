@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        thead {color: blue;}
+        tbody {
+            color: black;
+        }
+        
+        table {
+          border: none;
+          font-size: large;
+        }
+        th {
+            font-weight: 900;
+        }
+        td {
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title_id">Title A</h1>
+    <table id="peopleTable">
+        <thead>
+            <tr>
+                <th>Priezvisko</th>
+                <th>Meno</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hraško</td>
+                <td>Janko</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+</table>
+<div>
+    <button class="change_title" 
+    onclick="changeTitle('Nový title')">Change title</button>
+</div>
+<script src="l1.js"></script>
+</body>
+</html>
