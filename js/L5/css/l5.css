@@ -1,0 +1,20 @@
+thead {
+    color: blue;
+}
+
+tbody {
+    color: black;
+}
+
+table {
+    border: none;
+    font-size: large;
+}
+
+th {
+    font-weight: 900;
+}
+
+td {
+    font-weight: 100;
+}

@@ -84,3 +84,9 @@ function addPersonbB(otherPerson) {
     tableBody[0].innerHTML += newRow;
 
 }
+
+// changeTitle();
+const changeTitle = (newTitle) => {
+    const title = document.querySelector('#title_id');
+    title.innerHTML = newTitle;
+}
