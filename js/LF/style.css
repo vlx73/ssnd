@@ -1,0 +1,151 @@
+body {
+    background-color: black;
+    font-family: sans-serif;
+}
+
+header,
+nav,
+main,
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+article {
+    text-align: left;
+}
+
+header {
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.wrapper .header,
+.wrapper .footer,
+.wrapper nav {
+    padding: 10px;
+    margin: 10px;
+    flex: 1 100%;
+}
+
+.wrapper .main {
+    flex: 1 100%;
+    margin: 10px;
+}
+
+.main * {
+    flex: 1 100%;
+}
+
+.header {
+    background-color: blueviolet;
+    height: 120px;
+}
+
+.footer {
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    height: 120px;
+}
+
+nav {
+    background-color: darkslateblue;
+}
+
+nav ul {
+list-style-type: none;
+}
+
+nav a {
+    color: white;
+}
+
+.main {
+    background-color: chartreuse;
+}
+
+.left-sidebar {
+    order: 2;
+}
+
+.main-content {
+    order: 1;
+}
+
+.right-sidebar {
+    order: 3;
+}
+
+.left-sidebar,
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1 100%;
+    align-items: start;
+    background-color: brown;
+    padding: 10px;
+    margin: 10px;
+}
+
+.person {
+    padding: 5px;
+    margin: 5px;
+}
+
+h2 {
+    padding: 5px;
+    margin: 5px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 100%;
+    background-color: cornflowerblue;
+    padding: 10px;
+    margin: 10px;
+}
+
+@media all and (min-width: 800px) {
+
+    nav ul {
+        display: flex;
+        gap: 32px;
+        justify-content: space-between;
+        flex: 1 100%;
+        padding-inline: 0;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    main {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .left-sidebar {
+        flex: 1 20%;
+        order: 1;
+    }
+
+    .main-content {
+        flex: 1 60%;
+        order: 2;
+    }
+
+    .right-sidebar {
+        flex: 1 20%;
+        order: 3;
+    }
+}
