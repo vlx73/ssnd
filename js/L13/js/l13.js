@@ -8,7 +8,7 @@ $(document).ready(function () {
         dataType: 'json',
     })
         .done(function (data) {
-            console.log(data);
+            //   console.log(data);
             data.forEach(function (user) {
                 $('#myTable').append(
                     '<tr><td>' + user.name + '</td><td>' + user.email + '</td><td>' + user.phone +
@@ -19,6 +19,7 @@ $(document).ready(function () {
 
     // $.getJSON('https://jsonplaceholder.typicode.com/users', function (data) {
     //     data.forEach(function (user) {
+    //
     //         $('#myTable').append(
     //             '<tr><td>' + user.name + '</td><td>' + user.email + '</td><td>' + user.phone +
     //             '</td><td>' + user.website + '</td></tr>'
@@ -29,7 +30,8 @@ $(document).ready(function () {
 });
 
 // event listeners
-// $("#needle").focus(function () {
+// $("#needle").focus(function (event) {
+//     console.log('Event: ', event);
 //     $(this).css("background-color", "#fefbd8");
 // });
 //
@@ -40,10 +42,13 @@ $(document).ready(function () {
 
 // $("#needle")
 //     .focus(function () {
-//         $(this).css("background-color", "#cccccc");
+//         $(this).css("background-color", "#fefbd8");
 //     })
 //     .blur(function () {
 //         $(this).css("background-color", "#ffffff");
+//     })
+//     .click(function () {
+//         console.log('click');
 //     });
 
 // search table
@@ -51,6 +56,7 @@ $(document).ready(function () {
 //     let value = $(this).val().toLowerCase();
 //     console.log(value);
 //     $('#myTable tr').filter(function () {
+//
 //         console.log('tr: ', $(this));
 //         console.log('text part: ', $(this).text());
 //         console.log('tr index: ', $(this).text().toLowerCase().indexOf(value));
@@ -58,3 +64,14 @@ $(document).ready(function () {
 //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
 //     });
 // });
+
+// selector
+// $("a[href^='https://api.']")
+//     .hover(function () {
+//         console.log('hover');
+//         $(this).css("background-color", "#0c5460")
+//             .css("color", "#ffffff");
+//     }, function () {
+//         $(this).css("background-color", "#ffffff")
+//             .css("color", "#000000");
+//     });
