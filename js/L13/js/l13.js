@@ -17,25 +17,25 @@ $(document).ready(function () {
             });
         });
 
-    $.getJSON('https://jsonplaceholder.typicode.com/users', function (data) {
-        data.forEach(function (user) {
-            $('#myTable').append(
-                '<tr><td>' + user.name + '</td><td>' + user.email + '</td><td>' + user.phone +
-                '</td><td>' + user.website + '</td></tr>'
-            );
-        });
-    });
+    // $.getJSON('https://jsonplaceholder.typicode.com/users', function (data) {
+    //     data.forEach(function (user) {
+    //         $('#myTable').append(
+    //             '<tr><td>' + user.name + '</td><td>' + user.email + '</td><td>' + user.phone +
+    //             '</td><td>' + user.website + '</td></tr>'
+    //         );
+    //     });
+    // });
 
 });
 
 // event listeners
-$("#needle").focus(function () {
-    $(this).css("background-color", "#fefbd8");
-});
-
-$("#needle").blur(function () {
-    $(this).css("background-color", "#ffffff");
-});
+// $("#needle").focus(function () {
+//     $(this).css("background-color", "#fefbd8");
+// });
+//
+// $("#needle").blur(function () {
+//     $(this).css("background-color", "#ffffff");
+// });
 
 
 // $("#needle")
