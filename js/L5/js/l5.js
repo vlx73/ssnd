@@ -13,6 +13,10 @@ const myFunction3 = () => {
     console.log('myFunction3');
 }
 
+const myFunction5 = param1 => {
+    console.log('myFunction5');
+}
+
 // calling of callback function
 function myFunction4(callback) {
     console.log('myFunction4');
@@ -53,13 +57,12 @@ let people = [{
     'name': 'Jožko',
     'surName': 'Mrkvička'
 }];
-
-console.log(people);
+console.log('People 1:', people);
 
 // add person to array
 people.push(newPerson);
 people.push(otherPerson);
-console.log(people);
+console.log('People 2:', people);
 
 
 // callable function for adding person to table
@@ -71,13 +74,13 @@ people.forEach(
 
 function addPersonbB(otherPerson) {
     const table = document.getElementById("peopleTable");
-    console.log(table);
 
+    console.log(table);
     console.log(table.rows.length);
 
-    newRow = ` <tr>
-        <td>${person.surName}</td>
-        <td>${person.name}</td>
+    newRow = `<tr>
+        <td>${otherPerson.surName}</td>
+        <td>${otherPerson.name}</td>
     </tr>`;
 
     const tableBody = table.getElementsByTagName('tbody');
