@@ -1,15 +1,16 @@
 const getPromisedData = function () {
 
     return new Promise((resolve, reject) => {
-        resolve('This is ok data');
-        //reject('This is error data');
+
+        //resolve('This is ok data');
+        reject('This is error data');
     });
 
 
 }
 
 
-//getPromisedData().then(okcallback,errrorcallback)
+// getPromisedData().then(okcallback,errrorcallback)
 
 // getPromisedData()
 //     .then((dataOK) => {

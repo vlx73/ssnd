@@ -1,3 +1,4 @@
+
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => {
         console.log('Resolved: ', response);
@@ -5,7 +6,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
     })
     .then(data => {
         console.log(data);
-        
     })
     .catch(errorData => {
         // iba ak je nemožné spraviť request - DNS, network, ...
