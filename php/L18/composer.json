@@ -1,0 +1,24 @@
+{
+  "name": "ssnd/demo_project",
+  "description": "Project Description",
+  "type": "project",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Author Name",
+      "email": "author@ssnd.sk"
+    }
+  ],
+  "support": {
+    "email": "suppport@ssnd.sk"
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "src/"
+    }
+  }
+}
