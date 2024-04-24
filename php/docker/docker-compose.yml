@@ -1,9 +1,9 @@
-version: '3.8'
+name: ssnd-web-programovanie
 
 services:
-  postgresql:
+  ssnd-db:
     image: postgres:15
-    container_name: postgresql
+    container_name: ssnd-db
     restart: unless-stopped
     env_file:
       - .env
@@ -14,7 +14,7 @@ services:
     networks:
         - backend
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     container_name: pgadmin
     restart: unless-stopped
     env_file:
@@ -26,7 +26,7 @@ services:
     networks:
         - backend
     depends_on:
-      - postgresql
+      - ssnd-db
   php:
     build:
       context: .
@@ -39,9 +39,9 @@ services:
     env_file:
       .env
     volumes:
-      - ../L16/src:/var/www/html
+      - ../L20:/var/www/
     depends_on:
-      - postgresql
+      - ssnd-db
     networks:
         - backend
 networks:

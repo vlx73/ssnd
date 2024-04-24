@@ -31,7 +31,7 @@ RUN docker-php-ext-install zip mysqli fileinfo mbstring curl exif xml filter
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install intl
 ## PostgreSQL PDO support
-RUN docker-php-ext-install pdo
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 #install iamgick
 #RUN pecl install imagick \
@@ -42,9 +42,6 @@ RUN apt-get install --yes libapache2-mod-xsendfile
 ## Configure Apache
 RUN a2enmod rewrite
 
-# change the working directory
-WORKDIR /var/www/html
-
 ## Install Composer
 RUN curl -sS https://getcomposer.org/installer \
   | php -- --install-dir=/usr/local/bin --filename=composer
@@ -52,6 +49,13 @@ RUN curl -sS https://getcomposer.org/installer \
 ## Install and enable xdebug
 RUN pecl install xdebug \
 && docker-php-ext-enable xdebug
+
+## Configure Apache
+RUN a2enmod rewrite \
+    && sed -i 's!/var/www/html!/var/www/public!g' /etc/apache2/sites-available/000-default.conf
+
+WORKDIR /var/www
+# run as non root user
 
 ## copy .ini files for php
 COPY ./docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/
