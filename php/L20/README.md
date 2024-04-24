@@ -17,4 +17,11 @@ CREATE TABLE public."User"
 - `last_name` je priezvisko používateľa
 - `email` je email používateľa. Musí byť unikátny, lebo ho budeme používať zároveň ako login, rovnako musí byť povinný
 - `password` je heslo používateľa. Musí byť povinné
+# MVC
+## Model
+- `User` model obsahuje všetky atribúty
+- úlohou modelu je abstrahovať spôsob ukladania, čítania dát z permanentného úložiska a navonok poskytovať len presne definované entity alebo "collections", množiny entít (objekty)
+## Controller
+- controller predstavuje aplikačnú logiku - rozhranie medzi volaním a odpoveďou
+## View
 
