@@ -2,10 +2,11 @@
 
 namespace l20\Service;
 
+use l20\Entity\User;
 use l20\Enum\Email;
 use l20\Hydrator\UserHydrator;
 
-class UserService
+class UserModel
 {
     private DbService $dbService;
     
@@ -31,9 +32,17 @@ class UserService
     
     public function getUserByEmail(Email $email): User
     {
-        $result = $this->dbService->query("SELECT * FROM ssnd_user WHERE email = :email",
-            ['email' => (string)$email]);
+        $result = $this->dbService->query(
+            "SELECT * FROM ssnd_user WHERE email = ?",
+            [(string)$email]
+        );
         
-        return $user;
+        if (count($result) === 0) {
+            throw new \InvalidArgumentException('User not found');
+        }
+        
+        $userHydrate = new UserHydrator();
+        
+        return $userHydrate->hydrate($result[0]);
     }
 }
