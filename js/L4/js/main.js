@@ -11,6 +11,25 @@ console.log(x + y);
 // vykoná spojenie reťazcov "meno" a "x" obidve premenné sú interpretované ako string
 console.log(meno + " " + x);
 
+// príklad dátového typu object
+let person = {
+    name: "Janko",
+    age: 25,
+    isAdult: true
+};
+
+// k atrib[tom objektu pristupujeme bodkovým zápisom
+console.log(person);
+console.log(person.name);
+
+// príklad dátového typu array
+let fruits = ["apple", "banana", "orange"];
+
+// ku konkrétnemu prvku poľa pristupujeme pomocou indexu, index začína od 0
+console.log(fruits);
+console.log(fruits[1]);
+console.log(fruits.length)
+
 /*
  Rozsah platnosti premenných
  */
