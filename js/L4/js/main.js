@@ -22,21 +22,23 @@ let person = {
 console.log(person);
 console.log(person.name);
 
-// príklad dátového typu array
+// príklad  array
+// array je dátový typ objekt
 let fruits = ["apple", "banana", "orange"];
 
 // ku konkrétnemu prvku poľa pristupujeme pomocou indexu, index začína od 0
 console.log(fruits);
 console.log(fruits[1]);
+// volanie atribútu objektu poľa - počet prvkov poľa
 console.log(fruits.length)
 
 /*
- Rozsah platnosti premenných
+ Rozsah platnosti premenných a ukážka deklarácie funkcie
  */
 
 let global = "global scope";
 
-function scopes_demo() {
+function scopes_demo(parameters) {
     let message = "local scope";
 
     if (true) {
@@ -49,6 +51,8 @@ function scopes_demo() {
 
     console.log(`outer scope: ${message}`);
     console.log('global scope within function: ' + global);
+
+    return message;
 }
 
 console.log('global scope: ' + global);
