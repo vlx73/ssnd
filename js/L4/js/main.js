@@ -39,7 +39,7 @@ console.log(fruits.length)
 let global = "global scope";
 
 function scopes_demo(parameters) {
-    let message = "local scope";
+    var message = "local scope";
 
     if (true) {
 
