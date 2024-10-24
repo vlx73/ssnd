@@ -1,17 +1,40 @@
+let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+myArray.forEach(function (prvokPola) {
+    console.log(prvokPola ** 2);
+});
+
+
 // function declaration type 1 - named function
-function myFunction() {
+function myFunction(param1, param2) {
     console.log('myFunction');
+    console.log(param1 + param2);
+
+    return param1 + param2;
 }
+
+myFunction(1, 2);
 
 // function declaration type 2 - anonymous function
-const myFunction2 = function () {
+const myFunction2 = function (param1, param2) {
     console.log('myFunction2');
+    console.log(param1 - param2);
+
+    return param1 - param2;
 }
 
+myFunction2(5, 3);
+
 // function declaration type 3 - arrow function
-const myFunction3 = () => {
+const myFunction3 = (param1, param2) => {
     console.log('myFunction3');
+    console.log(param1 * param2);
+
+    return param1 * param2;
 }
+
+// example arrow function with one parameter and one line of code
+const myFunctionX = param1 => console.log('myFunctionX');
 
 const myFunction5 = param1 => {
     console.log('myFunction5');
@@ -78,7 +101,7 @@ function addPersonbB(otherPerson) {
     console.log(table);
     console.log(table.rows.length);
 
-    newRow = `<tr>
+    let newRow = `<tr>
         <td>${otherPerson.surName}</td>
         <td>${otherPerson.name}</td>
     </tr>`;
@@ -93,3 +116,23 @@ const changeTitle = (newTitle) => {
     const title = document.querySelector('#title_id');
     title.innerHTML = newTitle;
 }
+
+let table = document.querySelector('#peopleTable');
+console.log(table);
+
+let tableLines = table.querySelectorAll('tr');
+console.log(tableLines);
+
+
+document.querySelector("button").addEventListener(
+    "click",
+    function () {
+        alert("Button was clicked!");
+    }
+);
+
+
+document.querySelector("button").addEventListener(
+    "click",
+    event => alert("Button was clicked!")
+);
