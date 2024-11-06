@@ -1,69 +1,54 @@
-// /* let firstName = 'Janko';
-// let lastName = 'Hraško';
-
-// console.log(firstName + ' ' +lastName);
-
-// lastName = firstName
-
-// console.log(firstName + ' ' +lastName);
-
-// lastName = 'Mrkvi4ka';
-
-// console.log(firstName + ' ' +lastName);
-// */
-
-// // let people = {
-// //     firstName: 'Janko',
-// //     lastName: 'Hrasko',
-// // };
-
-// // console.log(people);
-
-// // let animals = people;
-
-// // console.log(people, animals);
-
-// // animals.firstName = 'Shelly';
-// // console.log(people, animals);
-
-// let element = document.querySelectorAll('body > div > p:nth-child(1)');
-
-// console.log(element);
-
-// let other = document.querySelector('div');
-
-// console.log(other.innerHTML);
-
-// other.innerHTML += '<h2>YEAP</hw>';
-
-// console.log(other.innerHTML);
-
-
-
-
-
-
-let para = document.querySelector('body > div > p:nth-child(2)');
+// ukážka query selectora
+let para = document.querySelectorAll('body > div > p:nth-child(1)');
 console.log(para);
+
+// ukážka atribútu innerHTML objektu div element
+let other = document.querySelector('div');
+console.log(other.innerHTML);
+
+// zmeníme obsah elementu div
+other.innerHTML += '<h2>YEAP</hw>';
+console.log(other.innerHTML);
+
+// ukážka práce s atribútom style objektu elementu
 
 
 para.style.color = 'green';
-
-
 para.classList.add('active');
-
 console.log(para.classList);
 
 para.classList.remove('error');
-
 console.log(para.classList);
 
 para.classList.toggle('error');
-
 console.log(para.classList);
 
 para.classList.toggle('error');
-
 console.log(para.classList);
-// console.log(para.classList);
-// para.classList.toggle();
+
+
+// changeTitle();
+const changeTitle = (newTitle) => {
+    const title = document.querySelector('#title_id');
+    title.innerHTML = newTitle;
+}
+
+let table = document.querySelector('#peopleTable');
+console.log(table);
+
+let tableLines = table.querySelectorAll('tr');
+console.log(tableLines);
+
+
+document.querySelector("button").addEventListener(
+    "click",
+    function () {
+        alert("Button was clicked!");
+    }
+);
+
+
+document.querySelector("button").addEventListener(
+    "click",
+    event => alert("Button was clicked!")
+);
