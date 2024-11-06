@@ -15,11 +15,9 @@ $password = $_ENV['POSTGRES_PASSWORD'];
 // vytvorenie instancie triedy DbService
 $dbService = new DbService($host, $port, $dbname, $user, $password);
 
-// príklad query
-$query = "SELECT * FROM ssnd_user";
-
 // Execute the query
-$result = $dbService->query($query);
+$result = $dbService->query("SELECT * FROM ssnd_user");
+
 //var_dump($result);
 $users = [];
 
@@ -34,10 +32,10 @@ foreach ($result as $row) {
 }
 
 // alternatíva s hydrátorom
-// $userHydrate = new UserHydrator();
-// foreach ($result as $row) {
-//     $users[] = $userHydrate->hydrate($row);
-// }
+ $userHydrate = new UserHydrator();
+ foreach ($result as $row) {
+     $users[] = $userHydrate->hydrate($row);
+ }
 
 // vypis vysledkov
 include 'template.php';

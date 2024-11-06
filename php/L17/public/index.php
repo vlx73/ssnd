@@ -9,7 +9,7 @@ use ssnd\Entity\Person;
 require_once __DIR__ . '/../autoload.php';
 spl_autoload_register('ssnd_class_autoloader');
 
-$emailAddress = 'vlado@valid.sk';
+$emailAddress = 'vlado@valid.';
 //
 try {
  $validEmail = new Email($emailAddress);

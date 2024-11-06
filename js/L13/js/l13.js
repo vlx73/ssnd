@@ -8,7 +8,7 @@ $(document).ready(function () {
         dataType: 'json',
     })
         .done(function (data) {
-            //   console.log(data);
+              console.log(data);
             data.forEach(function (user) {
                 $('#myTable').append(
                     '<tr><td>' + user.name + '</td><td>' + user.email + '</td><td>' + user.phone +
@@ -40,38 +40,39 @@ $(document).ready(function () {
 // });
 
 
-// $("#needle")
-//     .focus(function () {
-//         $(this).css("background-color", "#fefbd8");
-//     })
-//     .blur(function () {
-//         $(this).css("background-color", "#ffffff");
-//     })
-//     .click(function () {
-//         console.log('click');
-//     });
+$("#needle")
+    .focus(function () {
+        $(this).css("background-color", "#fefbd8");
+    })
+    .blur(function () {
+        $(this).css("background-color", "#ffffff");
+    })
+    .click(function () {
+        console.log('click');
+    });
 
 // search table
-// $('#needle').on('keyup', function () {
-//     let value = $(this).val().toLowerCase();
-//     console.log(value);
-//     $('#myTable tr').filter(function () {
-//
-//         console.log('tr: ', $(this));
-//         console.log('text part: ', $(this).text());
-//         console.log('tr index: ', $(this).text().toLowerCase().indexOf(value));
-//
-//         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-//     });
-// });
+$('#needle')
+    .on('keyup', function () {
+    let value = $(this).val().toLowerCase();
+    console.log(value);
+    $('#myTable tr').filter(function () {
+
+        console.log('tr: ', $(this));
+        console.log('text part: ', $(this).text());
+        console.log('tr index: ', $(this).text().toLowerCase().indexOf(value));
+
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
 
 // selector
-// $("a[href^='https://api.']")
-//     .hover(function () {
-//         console.log('hover');
-//         $(this).css("background-color", "#0c5460")
-//             .css("color", "#ffffff");
-//     }, function () {
-//         $(this).css("background-color", "#ffffff")
-//             .css("color", "#000000");
-//     });
+$("a[href^='https://api.']")
+    .hover(function () {
+        console.log('hover');
+        $(this).css("background-color", "#0c5460")
+            .css("color", "#ffffff");
+    }, function () {
+        $(this).css("background-color", "#ffffff")
+            .css("color", "#000000");
+    });

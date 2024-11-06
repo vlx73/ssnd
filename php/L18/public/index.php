@@ -2,7 +2,7 @@
 
 include_once '../vendor/autoload.php';
 
-use app\Entity\User;
+use l18\Entity\User;
 
 $user = new User(
     'John Doe',

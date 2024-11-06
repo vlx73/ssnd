@@ -1,0 +1,15 @@
+name: test-web-server
+services:
+  web:
+    image: nginx
+    container_name: test-web-server
+    ports:
+      - "8080:80"
+    networks:
+      default:
+    volumes:
+      - ./web:/usr/share/nginx/html
+networks:
+    default:
+        external:
+          name: test-network

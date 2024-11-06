@@ -89,13 +89,7 @@ console.log('People 2:', people);
 
 
 // callable function for adding person to table
-people.forEach(
-    person => {
-        addPersonbB(person);
-    }
-);
-
-function addPersonbB(otherPerson) {
+people.forEach( otherPerson => {
     const table = document.getElementById("peopleTable");
 
     console.log(table);
@@ -108,8 +102,7 @@ function addPersonbB(otherPerson) {
 
     const tableBody = table.getElementsByTagName('tbody');
     tableBody[0].innerHTML += newRow;
-
-}
+});
 
 // changeTitle();
 const changeTitle = (newTitle) => {
