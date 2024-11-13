@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="sk">
-    <head>
-        <title>Event listeners demo</title>
-        <link rel="stylesheet" type="text/css" href="css/l7.css" />
-    </head>
-    <body>
-        <div>
-            <h2>Title</h2>
-        </div>
-        <div>
+<head>
+    <title>Event listeners demo</title>
+    <link rel="stylesheet" type="text/css" href="css/l7.css"/>
+</head>
+<body>
+<div class="task">
+    <div>
+        <h2>Priklad 1 - event bubling</h2>
+    </div>
+    <div>
         <ul>
             <li>Item 1</li>
             <li>Item 2</li>
@@ -17,6 +18,20 @@
         <input type="text" id="newItem">
         <button id="add">add item</button>
     </div>
-            <script src="js/l7.js"></script>
-    </body>
+</div>
+<div class="task">
+    <div>
+        <h2>Priklad 2 - inline event handler</h2>
+    </div>
+    <button onclick="alert('Nastal click event!')">Inline event alert</button>
+</div>
+<div class="task">
+    <div>
+        <h2>Priklad 3 - zmena atribútov</h2>
+    </div>
+    <input type="password" id="loginPassword" placeholder="password" class="sgu-input">
+    <p>show password in clear text <input type="checkbox" id="switch"></p>
+</div>
+<script src="js/l7.js"></script>
+</body>
 </html>
