@@ -15,6 +15,7 @@ liItems.forEach(item => {
  */
 const addButton = document.querySelector('#add');
 const newItem = document.querySelector('input');
+const ul = document.querySelector('ul');
 
 addButton.addEventListener('click', (event) => {
     // vytvoríme nový li element bez jeho umiestnenia v DOM
