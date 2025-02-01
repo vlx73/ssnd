@@ -1,0 +1,95 @@
+/* Reset default margins and paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e9ecef;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    width: 100%;
+    background: #8491a3; /* Updated header background color */
+    padding: 20px 0;
+    text-align: center; /* Centers the logo image horizontally */
+}
+
+header img {
+    max-width: 50%; /* Limit the logo to 50% of the header width */
+    height: auto;
+    border-radius: 1rem; /* Rounded corners with rem value */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Removed top and bottom margins */
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* New h1 styling */
+h1 {
+    font-size: 2rem;
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+}
+
+p {
+    margin: 15px 0;
+}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    background: #ffe6e6;
+    border-left: 5px solid #ff0000;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+/* Decorative SVG pattern at the bottom */
+.svg-footer {
+    display: block;
+    width: 100%;
+    margin-top: 0; /* Removed margin-top */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 0 auto;
+        padding: 15px 20px;
+    }
+    header {
+        padding: 10px 0;
+    }
+    header img {
+        max-width: 70%;
+    }
+}
