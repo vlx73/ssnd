@@ -1,15 +1,23 @@
 name: test-web-server
 services:
-  web:
+  backend:
     image: nginx
-    container_name: test-web-server
+    container_name: backend-service
     ports:
       - "8080:80"
     networks:
-      default:
-    volumes:
-      - ./web:/usr/share/nginx/html
+      ssnd:
+  frontend:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    image: myphpimage
+    container_name: frontend-service
+    ports:
+      - "8081:80"
+    networks:
+      ssnd:
+        - ipv4_address: 172.18.0.3
 networks:
-    default:
-        external:
-          name: test-network
+    ssnd:
+        external: true
