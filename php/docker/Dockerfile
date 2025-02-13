@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.2
+ARG PHP_VERSION=8.3
 
 FROM php:${PHP_VERSION}-apache-bookworm as base
 
@@ -26,7 +26,7 @@ RUN apt-get update \
 ###
 
 ## Install zip libraries and extension
-RUN docker-php-ext-install zip mysqli fileinfo mbstring curl exif xml filter
+RUN docker-php-ext-install zip fileinfo mbstring curl exif xml filter
 ## Install intl library and extension
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install intl

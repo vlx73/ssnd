@@ -2,7 +2,7 @@ name: ssnd-web-programovanie
 
 services:
   ssnd-db:
-    image: postgres:15
+    image: postgres:17
     container_name: ssnd-db
     restart: unless-stopped
     env_file:
@@ -12,7 +12,8 @@ services:
     volumes:
       - ../data/postgresql:/var/lib/postgresql/data
     networks:
-        - backend
+        ssnd:
+          ipv4_address: 172.18.0.4
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: pgadmin
@@ -20,31 +21,42 @@ services:
     env_file:
       - .env
     ports:
-      - "5050:80"
+      - "8088:80"
     volumes:
       - ../data/pgadmin:/var/lib/pgadmin
     networks:
-        - backend
+        ssnd:
+          ipv4_address: 172.18.0.5
     depends_on:
       - ssnd-db
-  php:
+  backend:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: php-development:8.2
+    image: php-development:8.3
     container_name: php-backend
     restart: unless-stopped
     ports:
-      - "8020:80"
+      - "8081:80"
     env_file:
       .env
     volumes:
-      - ../L20:/var/www/
-    depends_on:
-      - ssnd-db
+      - ../L13/backend:/var/www/
     networks:
-        - backend
+      ssnd:
+        ipv4_address: 172.18.0.3
+  frontend:
+    image: php-development:8.3
+    container_name: php-frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ../L13/frontend:/var/www/
+    networks:
+        ssnd:
+          ipv4_address: 172.18.0.2
 networks:
-    backend:
-        external: true
-        name: ssnd-dev-network
+  ssnd:
+    name: ssnd
+    external: true
