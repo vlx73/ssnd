@@ -1,35 +1,84 @@
 <?php
 
-namespace pws;
+namespace pwa\Router;
 
+use http\Exception\InvalidArgumentException;
+
+/**
+ *
+ */
 class Router
 {
+    /**
+     * @var array
+     */
     private array $routes = [];
     
+    
+    /**
+     * Configure get method route
+     *
+     * @param string $path
+     * @param string $controller
+     * @param string $action
+     * @return $this
+     */
     public function get(string $path, string $controller, string $action): static
     {
         $this->addRoute('GET', $path, $controller, $action);
         return $this;
     }
     
+    /**
+     * Configure post method route
+     *
+     * @param string $path
+     * @param string $controller
+     * @param string $action
+     * @return $this
+     */
     public function post(string $path, string $controller, string $action): static
     {
         $this->addRoute('POST', $path, $controller, $action);
         return $this;
     }
     
+    /**
+     * Configure put method route
+     *
+     * @param string $path
+     * @param string $controller
+     * @param string $action
+     * @return $this
+     */
     public function put(string $path, string $controller, string $action): static
     {
         $this->addRoute('PUT', $path, $controller, $action);
         return $this;
     }
     
+    /**
+     * Configure patch method route
+     *
+     * @param string $path
+     * @param string $controller
+     * @param string $action
+     * @return $this
+     */
     public function patch(string $path, string $controller, string $action): static
     {
         $this->addRoute('PATCH', $path, $controller, $action);
         return $this;
     }
     
+    /**
+     * Configure delete method route
+     *
+     * @param string $path
+     * @param string $controller
+     * @param string $action
+     * @return $this
+     */
     public function delete(string $path, string $controller, string $action): static
     {
         $this->addRoute('DELETE', $path, $controller, $action);
@@ -37,7 +86,7 @@ class Router
     }
     
     /**
-     * Adds a route with potential dynamic parameters.
+     * Adds a route with potential dynamic parameters to the configuration
      */
     private function addRoute(string $method, string $path, string $controller, string $action): void
     {
@@ -72,8 +121,7 @@ class Router
             } elseif ($matches[2] === 'uuid') {
                 return '(?P<' . $matches[1] . '>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})';
             }
-            // Fallback (should not happen if only int and uuid are used)
-            return $matches[0];
+            throw new InvalidArgumentException('Only int and uuid parameter types are supported.');
         }, $path);
         
         // Ensure the regex matches the entire path.

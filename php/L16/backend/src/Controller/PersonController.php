@@ -1,5 +1,6 @@
 <?php
 
+namespace pwa\Controller;
 class PersonController
 {
     
