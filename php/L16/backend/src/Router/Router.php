@@ -3,6 +3,7 @@
 namespace pwa\Router;
 
 use http\Exception\InvalidArgumentException;
+use Ramsey\Uuid\Uuid;
 
 /**
  *
@@ -119,7 +120,10 @@ class Router
             if ($matches[2] === 'int') {
                 return '(?P<' . $matches[1] . '>\d+)';
             } elseif ($matches[2] === 'uuid') {
-                return '(?P<' . $matches[1] . '>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})';
+                $uuidString = '(?P<' . $matches[1] . '>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})';
+                if (Uuid::isValid($uuidString)) {
+                    return UUID::fromString($uuidString);
+                }
             }
             throw new InvalidArgumentException('Only int and uuid parameter types are supported.');
         }, $path);
@@ -137,7 +141,7 @@ class Router
     public function dispatch(): void
     {
         $requestMethod = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-        $requestUri    = $_SERVER['REQUEST_URI'] ?? '/';
+        $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
         $path = parse_url($requestUri, PHP_URL_PATH) ?: '/';
         
         $method = strtoupper($requestMethod);
@@ -154,7 +158,7 @@ class Router
                 }
                 
                 $controllerName = $route['controller'];
-                $actionMethod   = $route['action'];
+                $actionMethod = $route['action'];
                 
                 if (!class_exists($controllerName)) {
                     header("HTTP/1.1 500 Internal Server Error");

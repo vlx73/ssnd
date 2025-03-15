@@ -2,18 +2,38 @@
 
 namespace pwa\Entity;
 
+use Ramsey\Uuid\Uuid;
+
+/**
+ *
+ */
 class Person implements \JsonSerializable
 {
-    private string $id;
+    /**
+     * @var Uuid
+     */
+    private Uuid $id;
+    /**
+     * @var string
+     */
     private string $firstname;
+    /**
+     * @var string
+     */
     private string $lastname;
-    private string $email;
-    private string $phone;
+    /**
+     * @var string|null
+     */
+    private ?string $email;
+    /**
+     * @var string|null
+     */
+    private ?string $phone;
     
     /**
      * @return mixed
      */
-    public function getId(): string
+    public function getId(): Uuid
     {
         return $this->id;
     }
@@ -21,7 +41,7 @@ class Person implements \JsonSerializable
     /**
      * @param mixed $id
      */
-    public function setId($id): void
+    public function setId(Uuid $id): void
     {
         $this->id = $id;
     }
@@ -29,7 +49,7 @@ class Person implements \JsonSerializable
     /**
      * @return mixed
      */
-    public function getFirstname():string
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
@@ -45,7 +65,7 @@ class Person implements \JsonSerializable
     /**
      * @return mixed
      */
-    public function getLastname():string
+    public function getLastname(): string
     {
         return $this->lastname;
     }
@@ -59,9 +79,9 @@ class Person implements \JsonSerializable
     }
     
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getEmail():string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -75,9 +95,9 @@ class Person implements \JsonSerializable
     }
     
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getPhone():string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -91,6 +111,9 @@ class Person implements \JsonSerializable
     }
     
     
+    /**
+     * @return array
+     */
     public function jsonSerialize(): array
     {
         return [
