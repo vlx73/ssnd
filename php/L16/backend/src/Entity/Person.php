@@ -3,6 +3,7 @@
 namespace pwa\Entity;
 
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  *
@@ -12,7 +13,7 @@ class Person implements \JsonSerializable
     /**
      * @var Uuid
      */
-    private Uuid $id;
+    private UuidInterface $id;
     /**
      * @var string
      */
@@ -41,7 +42,7 @@ class Person implements \JsonSerializable
     /**
      * @param mixed $id
      */
-    public function setId(Uuid $id): void
+    public function setId(UuidInterface $id): void
     {
         $this->id = $id;
     }

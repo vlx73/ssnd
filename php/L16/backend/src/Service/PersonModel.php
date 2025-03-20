@@ -24,9 +24,9 @@ class PersonModel
         // setup DSN - Data Source Name
         $dsn = sprintf(
             'pgsql:host=%s;port=%s;dbname=%s',
-            getenv('POSTGRES_HOST') ?? 'localhost',
-            getenv('POSTGRES_PORT_PORT') ?? '5432',
-            getenv('POSTGRES_DB') ?? 'your_database'
+            getenv('POSTGRES_HOST') ? getenv('POSTGRES_HOST') : 'localhost',
+            getenv('POSTGRES_PORT') ? getenv('POSTGRES_PORT') : 5432,
+            getenv('POSTGRES_DB') ? getenv('POSTGRES_DB') : 'your_database'
         );
         
         // setup DB connection options
@@ -170,7 +170,7 @@ class PersonModel
         $person->setLastname($personData['last_name']);
         
         // set optional first name
-        if(isset($personData['first_name'])) {
+        if (isset($personData['first_name'])) {
             $person->setFirstname($personData['first_name']);
         }
         

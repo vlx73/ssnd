@@ -11,7 +11,7 @@ use pwa\Controller\PersonController;
 $router = new Router();
 
 //// 2. nakonfigurujeme routy
-$router->get('/persons', PersonController::class, 'index');
+$router->get('/persons', PersonController::class, 'read');
 $router->post('/persons', PersonController::class, 'create');
 $router->delete('/persons/{personId:UUID}', PersonController::class, 'delete');
 
