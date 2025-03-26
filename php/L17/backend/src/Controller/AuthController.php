@@ -37,7 +37,42 @@ class AuthController
     }
     
     /**
-     * Register a new user
+     * Login endpoint
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function login()
+    {
+        // Get the request body
+        $body = file_get_contents('php://input');
+        $bodyData = json_decode($body, true);
+        
+        // Check if the request body contains the required fields
+        if (!isset($bodyData['username']) || !isset($bodyData['password'])) {
+            $this->view->render(['error' => 'Invalid request'], 400);
+        }
+        
+        try {
+            $token = $this->authService->login($bodyData['username'], $bodyData['password']);
+        } catch (\Exception $e) {
+            $this->view->render(['error' => 'Invalid credentials'], 401);
+            return;
+        }
+        
+        $this->view->render(['token' => $token]);
+    }
+    
+    /**
+     * @return void
+     */
+    public function logout(): void
+    {
+    //TODO: implement logout
+    }
+    
+    /**
+     * Register a new user endpoint
      *
      * @throws \Exception
      */
@@ -64,14 +99,6 @@ class AuthController
         }
         
         $this->view->render($user);
-    }
-    
-    /**
-     * @return void
-     */
-    public function update(): void
-    {
-    
     }
     
     /**

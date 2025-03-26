@@ -16,6 +16,10 @@ $router = new Router();
 $router->post('/users', AuthController::class, 'create');
 $router->delete('/users/{userId:uuid}', AuthController::class, 'delete');
 
+// Authentication endpoint
+$router->post('/login', AuthController::class, 'login');
+$router->post('/logout', AuthController::class, 'logout');
+
 // Person endpoints
 $router->get('/persons', PersonController::class, 'read');
 $router->post('/persons', PersonController::class, 'create');

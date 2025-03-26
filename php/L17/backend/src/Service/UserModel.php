@@ -57,12 +57,13 @@ class UserModel
         $stmt->execute();
         
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-        
         if (!$userData) {
             throw new \Exception('User not found');
         }
+        $userId = Uuid::fromString($userData['id']);
+        $user =  new User($userId, $userName, $userData['password_hash']);
         
-        return new User($userData['id'], $userName, $userData['password_hash']);
+        return $user;
     }
     
     /**
