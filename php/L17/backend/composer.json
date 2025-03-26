@@ -1,0 +1,26 @@
+{
+  "name": "ssnd/demo_project",
+  "description": "Project Description",
+  "type": "project",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Author Name",
+      "email": "author@ssnd.sk"
+    }
+  ],
+  "support": {
+    "email": "suppport@ssnd.sk"
+  },
+  "require": {
+    "php": ">=8.1",
+    "firebase/php-jwt": "^6.11",
+    "ramsey/uuid": "^4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "pwa\\": "src/"
+    }
+  }
+}
