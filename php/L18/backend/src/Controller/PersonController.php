@@ -36,6 +36,7 @@ class PersonController
             $this->authService->validateToken();
         } catch (\Exception) {
             $this->view->render(['error' => 'Unauthorized'], 401);
+            return;
         }
         
         // echo "hallo from index";

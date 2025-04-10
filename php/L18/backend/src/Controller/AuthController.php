@@ -54,6 +54,7 @@ class AuthController
         // Check if the request body contains the required fields
         if (!isset($bodyData['username']) || !isset($bodyData['password'])) {
             $this->view->render(['error' => 'Invalid request'], 400);
+            return;
         }
         
         try {
@@ -82,7 +83,9 @@ class AuthController
     public function create(): void
     {
         // test this request comes from authorized client application
-        $this->validateClientApplication();
+        if(!$this->validateClientApplication()) {;
+            return;
+        }
         
         // Get the request body
         $body = file_get_contents('php://input');
@@ -116,7 +119,10 @@ class AuthController
         $this->validateClientApplication();
         
         // validate userId format
-        Uuid::isValid($userId) ?: $this->view->render(['error' => 'Invalid request'], 400);
+        if(!Uuid::isValid($userId)){
+            $this->view->render(['error' => 'Invalid request'], 400);
+            return;
+        }
         
         // submit to the UserModel
         try {
@@ -137,13 +143,14 @@ class AuthController
      *
      * @return void
      */
-    private function validateClientApplication(): void
+    private function validateClientApplication(): bool
     {
         $headers = getallheaders();
         $authorizationHeader = $headers['Authorization'] ?? null;
         
         if ($authorizationHeader === null) {
             $this->view->render(['error' => 'Not allowed'], 403);
+            return false;
         }
         
         // Extract clientId and clientSecret from the Authorization header
@@ -152,10 +159,14 @@ class AuthController
             [$clientId, $clientSecret] = explode(':', $decodedAuth, 2);
         } else {
             $this->view->render(['error' => 'Invalid request'], 400);
+            return false;
         }
         
         if (!$this->authService->clientIsAuthorized($clientId, $clientSecret)) {
             $this->view->render(['error' => 'Invalid client credentials'], 401);
+            return false;
         }
+        
+        return true;
     }
 }
