@@ -1,0 +1,8 @@
+name: ssndphp
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ssndphp
+    container_name: frontend

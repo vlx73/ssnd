@@ -14,11 +14,13 @@
     "email": "suppport@ssnd.sk"
   },
   "require": {
-    "php": ">=8.1"
+    "php": ">=8.1",
+    "firebase/php-jwt": "^6.11",
+    "ramsey/uuid": "^4.7"
   },
   "autoload": {
     "psr-4": {
-      "l18\\": "src/"
+      "pwa\\": "src/"
     }
   }
 }
