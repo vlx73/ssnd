@@ -45,7 +45,9 @@ class AuthController
     public function login(): void
     {
         // test this request comes from authorized client application
-        $this->validateClientApplication();
+        if(!$this->validateClientApplication()) {;
+            return;
+        }
         
         // Get the request body
         $body = file_get_contents('php://input');
