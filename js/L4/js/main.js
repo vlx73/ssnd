@@ -1,86 +1,21 @@
-/*
- Dátové typy
- */
-let x = 4;
-let y = 5;
-let meno = "Janko";
+const ulElement = document.getElementsByTagName('ul');
+console.log(ulElement);
 
-// vykoná aritmetický súčet s číslami x a y obidve premenné sú interpretované ako number
-console.log(x + y);
+const ulNode = document.querySelector('ul');
+console.log(ulNode);
 
-// vykoná spojenie reťazcov "meno" a "x" obidve premenné sú interpretované ako string
-console.log(meno + " " + x);
+// načítame node identifikovaný id
+const secondLi = document.querySelector('#li2');
+console.log(secondLi);
 
-// príklad dátového typu object
-let person = {
-    name: "Janko",
-    age: 25,
-    isAdult: true
-};
+// načítame rodiča
+const parentUl = secondLi.parentNode;
+console.log(parentUl);
 
-// k atrib[tom objektu pristupujeme bodkovým zápisom
-console.log(person);
-console.log(person.name);
+// načítame nasledujúceho súrodenca
+const nextLi = secondLi.nextElementSibling;
+console.log(nextLi);
 
-// príklad  array
-// array je dátový typ objekt
-let fruits = ["apple", "banana", "orange"];
-
-// ku konkrétnemu prvku poľa pristupujeme pomocou indexu, index začína od 0
-console.log(fruits);
-console.log(fruits[1]);
-// volanie atribútu objektu poľa - počet prvkov poľa
-console.log(fruits.length)
-
-/*
- Rozsah platnosti premenných a ukážka deklarácie funkcie
- */
-
-let global = "global scope";
-
-function scopes_demo(parameters) {
-    var message = "local scope";
-
-    if (true) {
-
-        let message = "block level scope";
-
-        console.log(`inner scope: ${message}`);
-        console.log('global scope within block: ' + global);
-    }
-
-    console.log(`outer scope: ${message}`);
-    console.log('global scope within function: ' + global);
-
-    return message;
-}
-
-console.log('global scope: ' + global);
-scopes_demo();
-
-/*
- riadenie toku programu
- */
-
-// vykoná blok kódu ak je splnená podmienka porovnania s výsledkom tru
-if (x > y) {
-    console.log("x je väčšie ako y");
-}
-
-// vykoná blok kódu opakovane pokiaľ je splnená podmienka porovnania s výsledkom true minimálne 0 krát
-while (x > 0) {
-    console.log("x je " + x);
-    x--;
-}
-
-// vykoná blok kódu opakovane pokiaľ je splnená podmienka porovnania s výsledkom true minimálne raz
-do {
-    console.log("x je " + x);
-    x++;
-} while (x <= 5);
-
-// vykoná blok kódu opakovane pokiaľ je splnený testovací výraz a pri každom cykle sa vykoná iteračný výraz
-// for([inicializácia]; [testovací výraz]; [iteračný výraz]) {
-for (let i = 0; i < 5; i++) {
-    console.log("i je " + i);
-}
+// načítame predchádzajúceho súrodenca
+const previousLi = secondLi.previousElementSibling;
+console.log(previousLi);
