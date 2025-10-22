@@ -2,16 +2,37 @@
     Padding: 10px;
     Color: crimson;
     Border: 1px dotted crimson;
-    }
+}
 
 .success {
     Padding: 10px;
     Color: limegreen;
     Border: 1px dotted limegreen;
-    }
+}
 
-    .info {
+.info {
     Padding: 10px;
     Color: blue;
     Border: 1px dotted blue;
-    }
+}
+
+.demo {
+    display: none;
+}
+
+#box {
+    width: 200px;
+    height: 200px;
+    background: skyblue;
+}
+
+@keyframes myAnimation {
+    from {background-color: black;}
+    to {background-color: white;}
+}
+
+.clickable {
+    animation-name: myAnimation;
+    animation-duration: 10s;
+}
+

@@ -6,10 +6,57 @@
     <link rel="stylesheet" href="css/l6.css">
 </head>
 <body>
-    <h1 id="title_id">Hodina 6</h1>
-    <div>
-        <p class="error">Zis <span style="display: none;">is</span> z paragraf</p>
-        <p class="error">This is z paragraph</p>
+    <h1 id="title_id">Hodina 6 <span></span></h1>
+    <div class="slider">
+        <button id="next">Ďalšia prezentácia</button>
+    </div>
+    <div id="demo-1" class="demo">
+        <h2>Prvé demo</h2>
+        <p>Click event addEventListener</p>
+        <div>
+            <button id="btn">Klikni na mňa!</button>
+            <p id="output"></p>
+        </div>
+    </div>
+    <div id="demo-2" class="demo">
+        <h2>Druhé demo</h2>
+        <p>Click event addEventListener nad všetkými buttonmi</p>
+        <div>
+            <h3></h3>
+            <button>Klikni na mňa</button>
+            <button>Aj na mňa</button>
+            <button>Ešte aj tu</button>
+        </div>
+    </div>
+    <div id="demo-3" class="demo">
+        <h2>Tretie demo inline event</h2>
+        <button onclick="alert('Clicked me!')">Klikni na mňa!</button>
+        <p id="output-2"></p>
+    </div>
+    <div id="demo-4" class="demo">
+        <h2>Štvrté demo</h2>
+        <div>
+            <input id="name" placeholder="Zadaj svoje meno">
+            <p id="greet"></p>
+        </div>
+    </div>
+    <div id="demo-5" class="demo">
+        <h2>Piate demo</h2>
+        <div id="box"></div>
+    </div>
+    <div id="demo-6" class="demo">
+        <h2>Šieste demo</h2>
+        <div id="semafor" style="width:100px;height:100px;border-radius:50%;background:red;"></div>
+        <button id="policajt">Zmeň farbu</button>
+    </div>
+    <div id="demo-7" class="demo">
+        <h2>Bonus demo</h2>
+        <div>
+            <ul>
+                <li id="axis-x"></li>
+                <li id="axis-y"></li>
+            </ul>
+        </div>
     </div>
 <script src="js/l6.js"></script>
 </body>
