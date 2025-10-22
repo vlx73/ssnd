@@ -31,7 +31,7 @@ up.addEventListener('click',(event) => {
     const player = document.querySelector('audio');
 
     if(player.volume <= 0.99){
-        player.volume += .01;
+        player.volume += .05;
     }
 
     console.log(player.volume);
@@ -42,7 +42,7 @@ down.addEventListener('click',(event) => {
     const player = document.querySelector('audio');
 
     if(player.volume >= 0.01){
-        player.volume -= .01;
+        player.volume -= .05;
     }
 
     console.log(player.volume);

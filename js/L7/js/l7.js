@@ -5,8 +5,9 @@ const liItems = document.querySelectorAll('li');
 liItems.forEach(item => {
     console.log(item.innerText);
     item.addEventListener('click', event => {
+        event.stopPropagation();
         console.log(event.target.innerText);
-        item.remove();
+        // item.remove();
     })
 })
 
@@ -37,10 +38,17 @@ addButton.addEventListener('click', (event) => {
  * version 2 remove li element when clicked which takes also newli created li elements
  */
 // const ul = document.querySelector('ul');
-//
+
 // ul.addEventListener('click', event => {
+//     //let liItems = ul.querySelectorAll('li');
+//
+//     if(event.target.tagName === 'LI') {
+//         event.target.remove();
+//     }
+//
 //     console.log(event.target.innerText);
-//     event.target.remove();
+//     console.log(event.target);
+//     // event.target.remove();
 // });
 
 /**
