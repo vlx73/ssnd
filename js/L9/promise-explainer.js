@@ -15,7 +15,7 @@ function getPromisedData() {
 
 // get the promise object
 let promise = getPromisedData();
-
+console.log(promise);
 
 /**
  * Demonstrate the use of .then() method to handle the promise object with two callbacks
@@ -25,11 +25,11 @@ console.log('Then with two callbacks');
 promise.then(callbackOnOk, callbackOnError)
 
 function callbackOnOk(data) {
-    console.log(data);
+    console.log('OK: ', data);
 }
 
 function callbackOnError(data) {
-    console.log(data);
+    console.log('NOK: ', data);
 }
 
 /**
@@ -39,21 +39,8 @@ function callbackOnError(data) {
 console.log('Then with one callback and catch');
 promise
     .then(dataOk => {
-        console.log(dataOk);
+        console.log('Then OK: ', dataOk);
     })
     .catch(dataNOK => {
-        console.log(dataNOK);
-    });
-
-
-/**
- * Demonstrate implicit use of .then and .catch without the variable but directly from the returned promise object
- */
-console.log('Implicit use of then and catch without variable');
-getPromisedData()
-    .then(dataOk => {
-        console.log(dataOk);
-    })
-    .catch(dataNOK => {
-        console.log(dataNOK);
+        console.log('Catch NOK: ', dataNOK);
     });
