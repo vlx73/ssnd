@@ -17,6 +17,11 @@ class ClientApplication
     private string $clientSecret;
     
     /**
+     * @var string
+     */
+    private string $corsOrigin;
+    
+    /**
      * @return string
      */
     public function getClientId(): string
@@ -49,6 +54,20 @@ class ClientApplication
     {
         $this->clientSecret = $clientSecret;
     }
+    
+    /**
+     * @return string
+     */
+    public function getCorsOrigin(): string
+    {
+        return $this->corsOrigin;
+    }
+    
+    public function setCorsOrigin(string $corsOrigin): void
+    {
+        $this->corsOrigin = $corsOrigin;
+    }
+    
     
     
 }

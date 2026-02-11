@@ -3,6 +3,7 @@
 namespace pwa\Controller;
 
 use pwa\Service\AuthService;
+use pwa\Service\ClientApplicationModel;
 use pwa\Service\UserModel;
 use pwa\View\JsonView;
 use Ramsey\Uuid\Uuid;
@@ -32,7 +33,11 @@ class AuthController
     public function __construct()
     {
         $this->userModel = new UserModel();
-        $this->view = new JsonView();
+        $clientModel = new ClientApplicationModel();
+        
+        $corsOrigins = $clientModel->getAllCorsOrigins();
+        
+        $this->view = new JsonView($corsOrigins);
         $this->authService = new AuthService();
     }
     

@@ -151,6 +151,18 @@ class AuthService
         $data = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
         
         return $data;
+    }
+    
+    /**
+     * Check if the user is logged in.
+     *
+     * @return bool
+     */
+    public function userLoggedIn(): bool
+    {
+        // check JWT token
+        $headers = null;
         
+        return false;
     }
 }

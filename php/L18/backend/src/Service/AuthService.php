@@ -150,6 +150,10 @@ class AuthService
         
         $data = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
         
+        /**
+         * Do the proper payload validation here
+         */
+        
         return $data;
         
     }

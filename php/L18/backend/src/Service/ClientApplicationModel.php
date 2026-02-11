@@ -51,7 +51,7 @@ class ClientApplicationModel
      */
     public function getClientByClientId(string $clientId): ?ClientApplication
     {
-        $stmt = $this->pdo->prepare("SELECT client_id, client_secret FROM client_applications WHERE client_id = :client_id LIMIT 1");
+        $stmt = $this->pdo->prepare("SELECT client_id, client_secret, cors_origin FROM client_applications WHERE client_id = :client_id LIMIT 1");
         $stmt->bindParam(':client_id', $clientId, PDO::PARAM_STR);
         $stmt->execute();
         
@@ -63,7 +63,14 @@ class ClientApplicationModel
         $clientApplication = new ClientApplication();
         $clientApplication->setClientId($clientData['client_id']);
         $clientApplication->setClientSecret($clientData['client_secret']);
-
+        $clientApplication->setCorsOrigin($clientData['cors_origin']);
+        
         return $clientApplication;
+    }
+    
+    public function getAllCorsOrigins(): array
+    {
+        $stmt = $this->pdo->query("SELECT cors_origin FROM client_applications");
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 }

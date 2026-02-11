@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --watch /app --ext js --legacy-watch index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

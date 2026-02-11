@@ -16,6 +16,7 @@ $router = new Router();
 // User management endpoints
 
 $router->get('/',HomePageController::class, 'index');
+$router->get('/dashboard', HomePageController::class, 'dashboard');
 
 // 3. zavoláme metódu dispatch na routri
 $router->dispatch();
