@@ -1,6 +1,7 @@
 import http from "node:http";
 import process from "node:process";
 import {readFile} from "node:fs/promises";
+//import {pool,getUsers} from "./db.js";
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 8080;
 
@@ -30,6 +31,13 @@ const server = http.createServer(async (request, response) => {
         response.write(JSON.stringify({time: new Date().toISOString()}));
         response.end();
     }
+
+    // if (request.method === 'GET' && request.url === "/users") {
+    //     const users = await getUsers();
+    //     response.writeHead(200, {"content-type": "application/json; charset=utf-8"});
+    //     response.write(JSON.stringify(users));
+    //     response.end();
+    // }
 
     // html example
     if (request.method === 'GET' && request.url === "/html") {
