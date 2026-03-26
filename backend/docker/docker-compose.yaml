@@ -45,9 +45,24 @@ services:
       - .env
     ports:
       - 5432:5432
+    volumes:
+      - ../db/data:/var/lib/postgresql/data
     networks:
       ssnd-network:
         ipv4_address: 172.18.0.10
+
+  ssnd-pgadmin:
+    image: dpage/pgadmin4
+    container_name: ssnd-pgadmin
+    env_file:
+      - .env
+    volumes:
+      - ../db/pgadmin:/var/lib/pgadmin
+    depends_on:
+      - ssnd-db
+    networks:
+      ssnd-network:
+        ipv4_address: 172.18.0.11
 
 networks:
   ssnd-network:
