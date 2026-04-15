@@ -28,6 +28,8 @@ services:
       dockerfile: ./Dockerfile
     image: ssnd-backend:dev
     container_name: ssnd-backend
+    env_file:
+      - .env
     environment:
       - PORT=8080
     volumes:
@@ -58,6 +60,8 @@ services:
       - .env
     volumes:
       - ../db/pgadmin:/var/lib/pgadmin
+    ports:
+      - 8081:80
     depends_on:
       - ssnd-db
     networks:
